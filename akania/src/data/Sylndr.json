@@ -1,0 +1,26 @@
+{
+  "company_name": "Sylndr",
+  "countries": [
+    "Egypt"
+  ],
+  "sector": [
+    "E-commerce",
+    "Automotive"
+  ],
+  "business_description": "Sylndr is an Egyptian online platform focused on buying and selling used cars. It aims to revolutionize the used vehicle market by providing a transparent and reliable service for customers. Sylndr offers a hassle-free experience, including financing and refurbishing options, ensuring quality assurance through inspections and warranties. Its efficient platform caters to the growing demand for used cars in Egypt's fragmented market, providing instant payment and collection for sellers while facilitating a smooth buying process.",
+  "key_people": [
+    {
+      "name": "Omar El Defrawy",
+      "title": "Chief Executive Officer and Co-founder"
+    },
+    {
+      "name": "Amr Mazen",
+      "title": "Co-founder"
+    }
+  ],
+  "transactions": "Raised $12.6 million in its first funding round led by Raed Ventures and participated by various investors, including Algebra Ventures and Global Founders Capital.",
+  "source_urls": [
+    "https://sylndr.com/en?srsltid=AfmBOorm9zYfEmcvVid9mGS1drwGURjulCm5Dq1Gm-4RBM9fhJ0xiwaY",
+    "https://www.thenationalnews.com/business/2022/05/23/sylndr-raises-126m-to-disrupt-egypts-online-used-car-market/"
+  ]
+}

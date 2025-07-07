@@ -1,0 +1,21 @@
+{
+  "company_name": "MONISHOP",
+  "countries": [
+    "Democratic Republic of the Congo"
+  ],
+  "sector": [
+    "Retail",
+    "Food and Beverages"
+  ],
+  "business_description": "MONISHOP is one of the largest supermarkets in the Democratic Republic of the Congo, located in Kinshasa. Established in 2012, the company aims to provide high-quality products and services at very affordable prices in a healthy environment. Its mission focuses on customer satisfaction and offering unbeatable price value.",
+  "key_people": [
+    {
+      "name": "Not specified",
+      "title": "General Management"
+    }
+  ],
+  "transactions": null,
+  "source_urls": [
+    "https://www.monishop.org/"
+  ]
+}
