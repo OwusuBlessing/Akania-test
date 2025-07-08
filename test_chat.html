@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Chat Test</title>
+</head>
+<body>
+    <h1>Chat Test</h1>
+    <div id="messages"></div>
+    <input type="text" id="input" placeholder="Type a message">
+    <button onclick="sendMessage()">Send</button>
+    <button onclick="testAPI()">Test API</button>
+
+    <script>
+        async function testAPI() {
+            console.log('Testing API...');
+            document.getElementById('messages').innerHTML += '<p>Testing API...</p>';
+            
+            try {
+                const response = await fetch('/test-chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                const data = await response.json();
+                document.getElementById('messages').innerHTML += '<p>API Response: ' + data.response + '</p>';
+            } catch (error) {
+                document.getElementById('messages').innerHTML += '<p>Error: ' + error.message + '</p>';
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('input');
+            const message = input.value;
+            
+            if (!message) return;
+            
+            console.log('Sending:', message);
+            document.getElementById('messages').innerHTML += '<p>You: ' + message + '</p>';
+            input.value = '';
+            
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: message })
+                });
+                
+                const data = await response.json();
+                document.getElementById('messages').innerHTML += '<p>Bot: ' + data.response + '</p>';
+            } catch (error) {
+                document.getElementById('messages').innerHTML += '<p>Error: ' + error.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

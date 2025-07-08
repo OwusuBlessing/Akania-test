@@ -1,0 +1,13 @@
+langchain 
+langgraph 
+langchain-openai 
+langchain-tavily 
+langchain-google-community 
+google-search-results 
+langchain-community 
+beautifulsoup4
+fastapi
+uvicorn[standard]
+python-multipart
+jinja2
+aiofiles
