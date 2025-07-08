@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>African Companies Knowledge Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/chat.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            🌍 African Companies Knowledge Bot
+            <div class="chat-subtitle">
+                Ask me anything about African companies in my database
+            </div>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-content">
+                    👋 Welcome! I'm your African Companies Knowledge Assistant. 
+                    
+                    I have detailed information about several African companies including Sylndr, Lapaire, Merec Industries, SanLei, and MONISHOP.
+                    
+                    You can ask me:
+                    • "Tell me about Sylndr"
+                    • "Which companies operate in multiple countries?"
+                    • "What sectors are represented?"
+                    • "Compare Lapaire and Sylndr"
+                    • Or any other question about these companies!
+                </div>
+            </div>
+        </div>
+        
+        <div class="loading" id="loading">
+            🤔 Thinking...
+        </div>
+        
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask me about African companies..." onkeypress="handleKeyPress(event)">
+            <button class="send-button clear-button" onclick="clearHistory()" id="clearButton">Clear</button>
+            <button class="send-button" onclick="sendMessage()" id="sendButton">Send</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='/js/chat.js') }}"></script>
+</body>
+</html>
