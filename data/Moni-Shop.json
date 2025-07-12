@@ -1,0 +1,28 @@
+{
+  "company_name": "Moni-Shop",
+  "countries": [
+    "République Démocratique du Congo",
+    "Congo"
+  ],
+  "sector": [
+    "Retail",
+    "Agroalimentaire",
+    "Distribution",
+    "Supermarket"
+  ],
+  "business_description": "Moni-Shop is a supermarket in Kinshasa, DR Congo, offering a wide range of products including appliances, fruits, and fresh goods. It aims to meet the diverse needs of its customers while providing a fresh shopping experience.",
+  "key_people": [
+    {
+      "name": "Toussaint Ndombasi",
+      "title": "Owner"
+    }
+  ],
+  "transactions": "XSML-owned African Rivers Fund (ARF) invested an undisclosed amount in Moni-shop.",
+  "source_urls": [
+    "https://www.facebook.com/305586226197434/",
+    "https://mapcarta.com/N5185079158",
+    "https://www.monishop.org/",
+    "https://pitchbook.com/profiles/company/183091-78",
+    "https://www.swfinstitute.org/profile/5e39a513fcbe7e8ca71f8099"
+  ]
+}

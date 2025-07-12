@@ -33,7 +33,9 @@ class ChatResponse(BaseModel):
 def load_company_knowledge_base():
     """Load all company JSON files as knowledge base"""
     knowledge_base = []
-    data_dir = os.path.join(os.path.dirname(__file__), 'akania', 'src', 'data')
+    
+    # Load from the enhanced data directory
+    data_dir = os.path.join(os.path.dirname(__file__), 'data')
     
     print(f"Looking for JSON files in: {data_dir}")
     
@@ -109,8 +111,24 @@ async def chat_endpoint(message: ChatMessage):
             knowledge_context += f"   Countries: {', '.join(company.get('countries', []))}\n"
             knowledge_context += f"   Sector: {', '.join(company.get('sector', []))}\n"
             knowledge_context += f"   Description: {company.get('business_description', 'N/A')}\n"
-            knowledge_context += f"   Key People: {len(company.get('key_people', []))} people\n"
-            knowledge_context += f"   Transactions: {company.get('transactions', 'N/A')}\n"
+            
+            # Include detailed key people information
+            key_people = company.get('key_people', [])
+            if key_people:
+                knowledge_context += f"   Key People:\n"
+                for person in key_people:
+                    name = person.get('name', 'Unknown')
+                    title = person.get('title', 'Unknown role')
+                    knowledge_context += f"     - {name} ({title})\n"
+            else:
+                knowledge_context += f"   Key People: None specified\n"
+            
+            # Include full transaction details
+            transactions = company.get('transactions')
+            if transactions and transactions != 'N/A' and transactions.strip():
+                knowledge_context += f"   Transactions: {transactions}\n"
+            else:
+                knowledge_context += f"   Transactions: No transaction information available\n"
         
         # Create chain
         chain = prompt | llm
@@ -344,21 +362,21 @@ async def get_chat_interface():
             
             <div class="chat-input-container">
                 <input type="text" class="chat-input" id="chatInput" placeholder="Ask me about African companies..." onkeypress="handleKeyPress(event)">
-                <button class="send-button" onclick="testAPI()" id="testButton" style="background: #28a745; margin-right: 10px;">Test</button>
+                <button class="send-button" onclick="clearChat()" id="clearButton" style="background: #dc3545; margin-right: 10px;">Clear</button>
                 <button class="send-button" onclick="sendMessage()" id="sendButton">Send</button>
             </div>
         </div>
 
         <script>
             // Global variables
-            let chatMessages, chatInput, sendButton, testButton, loading;
+            let chatMessages, chatInput, sendButton, clearButton, loading;
             
             // Initialize elements when DOM is loaded
             document.addEventListener('DOMContentLoaded', function() {
                 chatMessages = document.getElementById('chatMessages');
                 chatInput = document.getElementById('chatInput');
                 sendButton = document.getElementById('sendButton');
-                testButton = document.getElementById('testButton');
+                clearButton = document.getElementById('clearButton');
                 loading = document.getElementById('loading');
                 
                 // Focus input
@@ -371,7 +389,7 @@ async def get_chat_interface():
                     chatMessages: !!chatMessages,
                     chatInput: !!chatInput,
                     sendButton: !!sendButton,
-                    testButton: !!testButton,
+                    clearButton: !!clearButton,
                     loading: !!loading
                 });
             });
@@ -398,37 +416,48 @@ async def get_chat_interface():
                 console.log('Message added successfully');
             }
 
-            function testAPI() {
-                console.log('Testing API...');
-                addMessage('🔧 Testing API connection...', false);
+            function clearChat() {
+                console.log('Clearing chat...');
                 
-                fetch('/test-chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
+                if (!chatMessages) {
+                    console.error('chatMessages element not found!');
+                    return;
+                }
+                
+                // Confirm before clearing
+                if (confirm('Are you sure you want to clear the chat history?')) {
+                    // Remove all messages except the initial welcome message
+                    const messages = chatMessages.querySelectorAll('.message');
+                    messages.forEach((message, index) => {
+                        if (index > 0) { // Keep the first message (welcome message)
+                            message.remove();
+                        }
+                    });
+                    
+                    console.log('Chat cleared successfully');
+                    
+                    // Focus input after clearing
+                    if (chatInput) {
+                        chatInput.focus();
                     }
-                })
-                .then(response => {
-                    console.log('Test API response status:', response.status);
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Test API response data:', data);
-                    addMessage('✅ ' + data.response, false);
-                })
-                .catch(error => {
-                    console.error('API test failed:', error);
-                    addMessage('❌ API connection failed: ' + error.message, false);
-                });
+                }
             }
 
             function sendMessage() {
+                console.log('sendMessage() called');
+                
                 if (!chatInput || !sendButton || !loading) {
-                    console.error('Required elements not found!');
+                    console.error('Required elements not found!', {
+                        chatInput: !!chatInput,
+                        sendButton: !!sendButton,
+                        loading: !!loading
+                    });
                     return;
                 }
                 
                 const message = chatInput.value.trim();
+                console.log('Message to send:', message);
+                
                 if (!message) {
                     console.log('Empty message, not sending');
                     return;

@@ -52,8 +52,9 @@ class ChatHistoryItem(BaseModel):
 def load_company_knowledge_base():
     """Load all company JSON files as knowledge base"""
     knowledge_base = []
-    # Go up one directory from backend, then to akania/src/data
-    data_dir = os.path.join(os.path.dirname(__file__), '..', 'akania', 'src', 'data')
+    
+    # Load from the enhanced data directory
+    data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
     data_dir = os.path.abspath(data_dir)
     
     print(f"Looking for JSON files in: {data_dir}")
@@ -93,6 +94,7 @@ Countries: {', '.join(company.get('countries', []))}
 Sector: {company.get('sector', 'Unknown')}
 Description: {company.get('business_description', 'No description available')}
 Key People: {', '.join([f"{person.get('name', 'Unknown')} ({person.get('title', 'Unknown role')})" for person in company.get('key_people', [])])}
+Transactions: {company.get('transactions', 'No transaction information available')}
 ---"""
         
         # Build chat history for context

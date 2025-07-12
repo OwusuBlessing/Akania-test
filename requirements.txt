@@ -11,3 +11,7 @@ uvicorn[standard]
 python-multipart
 jinja2
 aiofiles
+python-dotenv
+pydantic
+requests
+itsdangerous

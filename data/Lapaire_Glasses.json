@@ -1,0 +1,27 @@
+{
+  "company_name": "Lapaire Glasses",
+  "countries": [
+    "Kenya",
+    "Benin",
+    "Ivory Coast",
+    "Togo",
+    "Burkina Faso",
+    "Mali",
+    "Uganda"
+  ],
+  "sector": [
+    "Optician",
+    "Eyewear Retail"
+  ],
+  "business_description": "Lapaire Glasses is a pioneering social enterprise based in Kenya that focuses on addressing the eyewear needs across Africa. Founded in 2018, it aims to provide affordable eyeglasses and vision tests to price-sensitive customers.",
+  "key_people": [
+    {
+      "name": "Jérôme Lapaire",
+      "title": "Founder"
+    }
+  ],
+  "transactions": "Lapaire, a Kenya-based eyewear startup, has secured $3 million to drive its expansion across Africa.",
+  "source_urls": [
+    "https://x.com/lapaireke?lang=en"
+  ]
+}

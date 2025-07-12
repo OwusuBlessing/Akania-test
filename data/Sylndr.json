@@ -1,0 +1,25 @@
+{
+  "company_name": "Sylndr",
+  "countries": [
+    "Egypt"
+  ],
+  "sector": [
+    "Automotive",
+    "E-commerce"
+  ],
+  "business_description": "Sylndr is an automotive-focused e-commerce marketplace in Egypt that allows users to buy, sell, finance, and service used cars. The platform aims to build trust in the used-car market by providing high-quality vehicles and transparent financing options.",
+  "key_people": [
+    {
+      "name": "Omar El Defrawy",
+      "title": "CEO"
+    }
+  ],
+  "transactions": "Raised $15.7 million in Series A funding led by Development Partners International's Nclude Fund; total funding exceeds $30 million since launch.",
+  "source_urls": [
+    "https://www.instagram.com/sylndr_eg/?hl=en",
+    "https://sylndr.com/en?srsltid=AfmBOopERV0-4o5MNp3IvjPCSOHyMc52dglAeIkHkupU5uKmmgPxP3pt",
+    "https://sylndr.com/?srsltid=AfmBOopTzH1pkJOtqHfUE6Xzc1BY5myja4wr2ih2fJFwfUAa_GmGbSwT",
+    "https://www.linkedin.com/company/sylndr/",
+    "https://techcrunch.com/2025/05/19/sylndr-with-fresh-15-7m-allows-users-to-buy-sell-finance-and-service-used-cars-in-egypt/"
+  ]
+}
